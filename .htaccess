@@ -1,0 +1,18 @@
+Options -Multiviews
+ 
+RewriteEngine On
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+ 
+RewriteRule ^(.+)/(.+)/(.+)$ index.php?controller=$1&method=$2&parametro=$3 [L]
+ 
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.+)/(.+)$ index.php?controller=$1&method=$2 [L]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^(.+)$ index.php?controller=$1 [L]
