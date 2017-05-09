@@ -1,18 +1,18 @@
 <?php
 /**
- * MVC_CUSTOM
+ * PhpSurf
  *
  * Esto es una aplicación Open Source
  *
  *
  * Copyright (c) 2017
  *
- * Framework de desarollo PHP
+ * Framework de desarollo PhpSurf
  * Customizado y Testeado para la fabricación
  * De aplicaciones Web Completas.
  *
  *
- * @package  MVC_CUSTOM
+ * @package  PhpSurf
  * @author   Alonso Velez Marulanda
  * @copyright    Copyright (c) 2017
  * @version  Version 1.0.0
@@ -75,7 +75,7 @@
  *
  */
 	require_once 'core/FrontController.config.php';
-
+	require_once 'config/routes.php';
 
 /**
  *---------------------------------------------------------------

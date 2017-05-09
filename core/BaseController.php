@@ -1,18 +1,18 @@
 <?php
 /**
- * MVC_CUSTOM
+ * PhpSurf
  *
  * Esto es una aplicación Open Source
  *
  *
  * Copyright (c) 2017
  *
- * Framework de desarollo PHP
+ * Framework de desarollo PhpSurf
  * Customizado y Testeado para la fabricación
  * De aplicaciones Web Completas.
  *
  *
- * @package  MVC_CUSTOM
+ * @package  PhpSurf
  * @author   Alonso Velez Marulanda
  * @copyright    Copyright (c) 2017
  * @version  Version 1.0.0
@@ -119,7 +119,7 @@ class BaseController{
 		if (file_exists(PATH_VIEW."base.php")) {
 			require_once PATH_VIEW.'/base.php';
 		}else{
-			echo "ATENCIÓN!<BR> CREE EL LAYOUT [base.php] EN LA RAIZ DEL FOLDER app/[views]";
+			echo "ATENCIÓN!<BR> CREAR EL LAYOUT [base.php] EN LA RAIZ DEL FOLDER app/[views]";
 			
 		}
 		//helper vistas
