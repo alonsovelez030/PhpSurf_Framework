@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+
 <head>
 	<title></title>
 </head>
@@ -8,4 +7,3 @@
 		ERROR 404
 	</h1>
 </body>
-</html>
