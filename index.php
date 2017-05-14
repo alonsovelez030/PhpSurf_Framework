@@ -75,7 +75,7 @@
  *
  */
 	require_once 'core/FrontController.config.php';
-	require_once 'config/routes.php';
+	
 
 /**
  *---------------------------------------------------------------

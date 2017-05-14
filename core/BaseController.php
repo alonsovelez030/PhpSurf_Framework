@@ -66,16 +66,14 @@ class BaseController{
 		 *
 		 */
 		require_once 'EntityBase.php';
-		
+
 		/**
 		 *---------------------------------------------------------------
-		 * HELPERS CONTROLADORES
+		 * API REST
 		 *---------------------------------------------------------------
-		 * 
-		 * Conjunto de helpers o funciones precargadas
 		 *
 		 */
-		require_once 'HelpersController.php';
+		require_once 'api_rest.php';
 		
 		/**
 		 *---------------------------------------------------------------
@@ -123,11 +121,13 @@ class BaseController{
 			
 		}
 		//helper vistas
-		require_once 'core/HelperViews.php';
+		require_once 'core/helpers/HelperViews.php';
 		$helper=new HelperViews();
 		//en la vista llamamos $helper->[NAME_METHOD]
 		require_once PATH_VIEW.$folder.'/'.$view;
 	}
+
+	// --------------------------------------------------------------------
 
 	/**  
 	 *
@@ -140,5 +140,22 @@ class BaseController{
 	public function model($model,$adapter){
 		return new $model($adapter);
 	}
+
+	// --------------------------------------------------------------------
+
+	/**
+	 *---------------------------------------------------------------
+	 * HELPERS CONTROLADORES
+	 *---------------------------------------------------------------
+	 * 
+	 * Conjunto de helpers o funciones precargadas
+	 *
+	 */
+	public function helper($helper){
+		$route = "helpers/".$helper."Helper.php";
+		require_once $route;
+	}
+
+	// --------------------------------------------------------------------
 }
 ?>

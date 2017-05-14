@@ -1,8 +1,9 @@
 <?php
     class UsuariosController extends BaseController{
-        public $conectar;
-    	public $adapter;
-        public $users;
+        private $conectar;
+    	private $adapter;
+        private $users;
+        private $api_rest;
     	
         public function __construct() {
             parent::__construct();
@@ -11,6 +12,11 @@
             $this->adapter=$this->conectar->con();
             //load the model Usuario
             $this->users = $this->model("Usuario",$this->adapter);
+            //load helper
+            $this->helper("Uri");
+            //load rest
+            $this->api_rest = new Rest();
+
         }
         
         public function index(){
@@ -37,6 +43,13 @@
 
         public function borrar(){
             echo $_REQUEST['parametro'];
+        }
+
+        public function rest(){
+            if ($this->api_rest->API() == "GET") {
+                $query = $this->users->getAll();
+                response($query);
+            }
         }
     }
 ?>

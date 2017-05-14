@@ -81,4 +81,23 @@
     		return $data;
     	}
     }
+
+//---------------------------------------------------------------------
+
+/**  
+ *
+ * @function response()
+ *
+ * Función que procesa un parametro y lo retorna en formato Json
+ *
+ * @param  string || array{}  $data  objeto Json
+ *
+ *
+ **/
+    function response($data){
+        if (isset($data)) {
+            echo json_encode($data);
+        }
+    }
+
 ?>
