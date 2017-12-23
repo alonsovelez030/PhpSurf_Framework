@@ -31,7 +31,7 @@
  *
  * @global PATH_MODEL               Contiene el path original de los modelos
  *
- * @global PATH_VIEW                Contiene el path original de las vistas
+ * @global PATH_VIEW                Contiene el path original de las vistass
  *
  */
 	
