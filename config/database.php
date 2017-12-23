@@ -1,10 +1,9 @@
 <?php
 	return array(
-	    "driver"    =>"mysql",
+	    "driver"    =>"PDO",
 	    "host"      =>"localhost",
 	    "user"      =>"root",
 	    "pass"      =>"",
-	    "database"  =>"pruebas",
-	    "charset"   =>"utf8"
+	    "database"  =>"GuruSale"
 	);
 ?>

@@ -1,0 +1,124 @@
+/* 
+CSS Reset v1.0 | 20080212 
+*/
+@import url(http://fonts.googleapis.com/css?family=Raleway:400,100,200,300);
+@import url(https://fonts.googleapis.com/css?family=Lato:100,300);
+@import url('https://fonts.googleapis.com/css?family=Palanquin:100,200,300,400,500,600,700');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+blockquote, q {
+  quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+:focus {
+  outline: 0;
+}
+ins {
+  text-decoration: none;
+}
+del {
+  text-decoration: line-through;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+label{
+  font-weight: 100;
+}
+textarea{
+  width: 100%;
+  font-family: inherit;
+  background-color: transparent;
+  font-size: 16px;
+  font-weight: 100;
+  height: 100px;
+  color: rgb(33, 33, 33);
+  border: none;
+  border-radius: 5px;
+  border: 1px solid #dededf;
+  padding: 5px;
+  padding: 12px;
+}
+textarea:focus{
+  outline: none;
+  border-bottom: 1px solid rgba(52, 152, 219,1);
+  border-top: 1px solid rgba(52, 152, 219,1);
+  border-left: 1px solid rgba(52, 152, 219,1);
+  border-right: 1px solid rgba(52, 152, 219,1);
+  border-radius: 5px;
+  -webkit-transition:all 0.1s linear;
+}
+select {
+  font-family: inherit;
+  background-color: transparent;
+  width: 100%;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  border-bottom: 1px solid rgba(0,0,0, 0.4);
+}
+
+select:focus {
+  outline: none;
+  border-bottom: 2px solid rgba(52, 152, 219,1);
+  -webkit-transition:all 0.2s linear;
+}
+ol li{
+  float: left;
+}
+
+label.error{
+  color: red;
+  margin-left: 5px;
+  padding-top: 5px;
+}
+input.error{
+  border:1px solid #f9adad !important;
+}
+textarea.error{
+  border:1px solid #f9adad !important;
+}
+select.error{
+  border:1px solid #f9adad !important;
+}
+input[type=file].error{
+  border:1px solid red !important;
+}
+
+.h1_welcome{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  bottom:0;
+  margin: auto;
+  height: 100px;
+  width: 500px;
+  font-weight: 100;
+}

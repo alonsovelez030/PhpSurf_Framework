@@ -143,7 +143,7 @@
         if(isset($_GET["method"]) && method_exists($controllerObj, $method)){
             instanceWork($controllerObj, $method);
         }else if(isset($_GET["method"]) && !method_exists($controllerObj, $method)){
-            redirect("Errors","error404");
+            header("Location:".BASE_DIR."/Errors/error404");
         }else{
             //get all methods of class instance
             $methods_class = get_class_methods($controllerObj);

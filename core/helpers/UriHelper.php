@@ -46,8 +46,12 @@
  * @function redirect()   función para hacer una redirección a cualquier controlador
  *
  **/
-	function redirect($controller=DEFAULT_CONTROLLER,$method=DEFAULT_METHOD){
-		header("Location:".BASE_DIR."/".$controller."/".$method);
+	function redirect($controller=DEFAULT_CONTROLLER,$method=DEFAULT_METHOD, $request, $message){
+        if (isset($request) && !empty($request) && isset($message) && !empty($message)) {
+            header("Location:".BASE_DIR."/".$controller."/".$method."/&".$request."=".$message);
+        }else{
+            header("Location:".BASE_DIR."/".$controller."/".$method."/");
+        }
 	}
 
 // --------------------------------------------------------------------
@@ -98,6 +102,43 @@
         if (isset($data)) {
             echo json_encode($data);
         }
+    }
+
+
+
+function GetIdYoutube($Url)//Validamos una Url de Youtube
+    {
+        if (preg_match('/(?:https?:\/\/|www\.|m\.|^)youtu(?:be\.com\/watch\?(?:.*?&(?:amp;)?)?v=|\.be\/)([\w‌​\-]+)(?:&(?:amp;)?[\w\?=]*)?/', $Url)) 
+        {
+            $Step1 = explode('v=', $Url);//dividimos la url que insertamos en 2 partes, la función no tiene en cuenta el delimitador que sería v=
+            $Step2 = explode('&',$Step1[1]);//en caso de que la url tenga algún otro identificador que contenga ampersand
+            $IdVideo = $Step2[0];//aquí guardamos el identificador
+
+            return $IdVideo;
+        }
+        return false;
+    }
+
+
+function getRealIP() 
+    {
+        if (!empty($_SERVER["HTTP_CLIENT_IP"]))
+        {
+            return $_SERVER["HTTP_CLIENT_IP"];
+        }
+        if (!empty($_SERVER["HTTP_X_FORWARDED_FOR"]))
+        {
+            return $_SERVER["HTTP_X_FORWARDED_FOR"];
+        }
+        return $_SERVER["REMOTE_ADDR"];
+
+    }
+
+function add_header_seguridad() 
+    {
+        header( 'X-Content-Type-Options: nosniff' );
+        header( 'X-Frame-Options: SAMEORIGIN' );
+        header( 'X-XSS-Protection: 1;mode=block' );
     }
 
 ?>

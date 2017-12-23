@@ -48,17 +48,32 @@ class Connect{
         $this->user=$db_cfg["user"];
         $this->pass=$db_cfg["pass"];
         $this->database=$db_cfg["database"];
-        $this->charset=$db_cfg["charset"];
     }
     
     public function con(){
         
         if($this->driver=="mysql" || $this->driver==null){
             $con=new mysqli($this->host, $this->user, $this->pass, $this->database);
-            $con->query("SET NAMES '".$this->charset."'");
+            $con->query("SET NAMES 'utf8'");
+
+            if ($con->connect_errno) {
+                printf("Conexión fallida: %s\n", $con->connect_error);
+                exit();
+            }else{
+                return $con;
+            }
+        }else if($this->driver=="PDO"){
+            try{
+                $con = new PDO('mysql:dbname='.$this->database.';host='.$this->host, $this->user, $this->pass, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8"));
+                $con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+                return $con;
+            }catch(PDOException $e){
+                printf("ERROR: " . $e->getMessage());
+                exit();
+            }
+
         }
-        
-        return $con;
     }
     
 }

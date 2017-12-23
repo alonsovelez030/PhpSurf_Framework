@@ -4,7 +4,7 @@ class EntityBase{
     private $db;
     private $conectar;
 
-    public function __construct($table, $adapter) {
+    public function __construct($table=NULL, $adapter) {
         $this->table=(string) $table;
 		$this->conectar = null;
 		$this->db = $adapter;
@@ -37,6 +37,17 @@ class EntityBase{
         
         return $resultSet;
     }
+
+    public function getMaxId($id){
+        $SqlGetId = $this->db->prepare("SELECT MAX($id) AS id FROM $this->table");
+        $SqlGetId->execute();
+        $SqlGetId->store_result();
+        $SqlGetId->bind_result($IdBd);
+        $SqlGetId->fetch();
+        $ArrayData[]=array($IdBd);
+
+        return $ArrayData;
+    }
     
     public function getBy($column,$value){
         $query=$this->db->query("SELECT * FROM $this->table WHERE $column='$value'");
@@ -57,12 +68,11 @@ class EntityBase{
         $query=$this->db->query("DELETE FROM $this->table WHERE $column='$value'"); 
         return $query;
     }
-    
 
     /*
      * Aqui podemos montarnos un monton de métodos que nos ayuden
      * a hacer operaciones con la base de datos de la entidad
      */
-    
+
 }
 ?>

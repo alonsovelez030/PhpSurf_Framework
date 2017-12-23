@@ -34,7 +34,8 @@
  * @global PATH_VIEW                Contiene el path original de las vistas
  *
  */
-
+	
+	date_default_timezone_set('America/Bogota');
 /**
  *---------------------------------------------------------------
  * CONFIGURACIÓN GLOBAL
@@ -62,6 +63,17 @@
  *
  */
 	require_once 'core/BaseController.php';
+
+/**
+ *---------------------------------------------------------------
+ * API REST
+ *---------------------------------------------------------------
+ * 
+ * Prototipo de API Rest
+ *
+ *
+ */
+	require_once 'core/restFull/RestLibrary.php';
 
 /**
  *---------------------------------------------------------------
